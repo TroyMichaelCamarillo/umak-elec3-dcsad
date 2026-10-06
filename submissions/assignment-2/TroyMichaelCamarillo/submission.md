@@ -102,7 +102,7 @@ No because a private subnet uses a route table with the local route only. Withou
 
 How is a network ACL different from a security group?
 
-A network ACL protects a whole subnet and is stateless. It's replies need their own outbound rule. A security group protects a signle resource, is stateful, and has allow only rules whereas a network ACL can also have deny rules.
+A network ACL protects a whole subnet and is stateless. It's replies need their own outbound rule. A security group protects a single resource, is stateful, and has allow only rules whereas a network ACL can also have deny rules.
 
 Screenshot 3. Save it as `screenshot-3-network-acl.png` in your folder. The image line below shows it.
 
@@ -124,8 +124,8 @@ Other resources that are assigned to the same security group.
 
 ### B1. Plan two subnets
 
-- Public subnet CIDR: 10.0.1.0/24
-- Private subnet CIDR: 10.0.2.0/24
+- Public subnet CIDR: 10.139.1.0/24
+- Private subnet CIDR: 10.139.2.0/24
 
 ### B2. Route tables
 
@@ -133,14 +133,14 @@ Route table of the public subnet:
 
 | Destination | Target |
 | --- | --- |
-| 10.0.0.0/16 | local |
+| 10.139.0.0/16 | local |
 | 0.0.0.0/0 | igw |
 
 Route table of the private subnet:
 
 | Destination | Target |
 | --- | --- |
-| 10.0.0.16 | local |
+| 10.139.0.0/16 | local |
 
 ### B3. My VPC diagram
 
@@ -172,4 +172,4 @@ The private subnet. Databases contain sensitive back-end data and should never b
 
 What is your question, and what made you think of it?
 
-If security groups are stateful and network ACLs are stateless, if they conflict with each other, which one takes priority and blocks the traffic e.g security group allows traffic but ACL denies it.
+If security groups are stateful and network ACLs are stateless, if they conflict with each other, which one takes priority and blocks the traffic e.g security group allows traffic but ACL denies it?
